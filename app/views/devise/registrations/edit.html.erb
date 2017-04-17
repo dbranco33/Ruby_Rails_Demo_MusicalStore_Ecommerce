@@ -4,8 +4,32 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :province  %><br />
+    <%= f.collection_select :province_id,
+                            Province.order(:name),
+                            :id,
+                            :name,
+                            include_blank: 'Select Province' %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email%>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

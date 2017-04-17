@@ -12,7 +12,44 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
-# parameters permitted to be changed by activeadmin
-permit_params :username, :name, :address, :province_id, :email
+  # parameters permitted to be changed by activeadmin
+  permit_params :username, :name, :address, :province_id, :email, :password
+
+  index do
+    selectable_column
+    id_column
+    column :username
+    column :name
+    column :email
+    column :address
+    column :province
+    column :encrypted_password
+    actions
+  end
+
+  filter :username
+  filter :name
+  filter :email
+  filter :address
+  filter :province
+  filter :encrypted_password
+
+  form do |f|
+    f.inputs "User Details" do
+      f.input :username
+      f.input :name
+      f.input :email
+      f.input :address
+      f.input :province,
+              :as => :select,
+              :label_method => :name,
+              :value_method => :id,
+              include_blank: 'Select Province'
+      f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+      f.input :password_confirmation, required: true
+    end
+    f.actions
+  end
+  
 
 end

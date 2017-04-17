@@ -19,17 +19,22 @@
   </div>
 
   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email%>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
     <%= f.label :province  %><br />
     <%= f.collection_select :province_id,
                             Province.order(:name),
                             :id,
                             :name,
-                            include_blank: 'Select Province' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email%>
+                            include_blank: 'Select Province',
+                            selected: @user.province_id %>
   </div>
 
   <div class="field">

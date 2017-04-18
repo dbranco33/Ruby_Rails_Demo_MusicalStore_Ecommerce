@@ -15,6 +15,7 @@ ActiveAdmin.register Product do
   # parameters permitted to be changed by activeadmin
   permit_params :name,
                 :brand,
+                :active,
                 :status,
                 :price,
                 :stock_quantity,
@@ -29,6 +30,7 @@ ActiveAdmin.register Product do
     column :name
     column :brand
     column :category
+    column :active
     column :status
     column :price
     column :stock_quantity
@@ -43,6 +45,7 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :brand
       f.input :category
+      f.input :active
       f.input :status
       f.input :price
       f.input :stock_quantity

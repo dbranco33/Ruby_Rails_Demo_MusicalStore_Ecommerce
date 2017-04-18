@@ -4,7 +4,7 @@ class CreateAbouts < ActiveRecord::Migration[5.0]
       t.text :mission
       t.text :vision
       t.text :about
-      t.about :history
+      t.text :history
 
       t.timestamps
     end

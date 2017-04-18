@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418000217) do
+ActiveRecord::Schema.define(version: 20170418022701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abouts", force: :cascade do |t|
+    t.text     "mission"
+    t.text     "vision"
+    t.text     "about"
+    t.text     "history"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,6 +61,18 @@ ActiveRecord::Schema.define(version: 20170418000217) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_categories_on_product_id", using: :btree
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "phone"
+    t.string   "address"
+    t.string   "email"
+    t.string   "week_hours"
+    t.string   "saturday_hours"
+    t.string   "sunday_hours"
+    t.string   "note"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "products", force: :cascade do |t|

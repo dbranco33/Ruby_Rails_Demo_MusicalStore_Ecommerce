@@ -1,0 +1,26 @@
+.contact
+  h2 Contact Us
+  p 
+    strong>Phone:
+    =contact.phone
+  p
+    strong>Email:
+    =contact.email
+  h4 
+    strong>Location:
+    =contact.address
+  h4 
+    strong>Hours of Operation:
+    p
+    p 
+      em>Monday-Friday:
+      =contact.week_hours
+    p 
+      em>Saturday:
+      =contact.saturday_hours
+    p 
+      em>Sunday:
+      =contact.sunday_hours
+  p 
+    strong>=contact.note
+  p = link_to 'Home', products_path

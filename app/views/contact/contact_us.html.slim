@@ -1,2 +1,2 @@
-h1 Contact#contact_us
-p Find me in app/views/contact/contact_us.html.slim
+h1 Draft Contact page
+= render partial: 'contact_us', collection: @contact, locals: {full_details:false}

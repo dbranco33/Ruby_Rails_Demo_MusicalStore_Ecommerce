@@ -1,0 +1,7 @@
+= form_tag search_results_path,:method => 'get' do
+  p
+    = text_field_tag :search_keywords
+    = select_tag :search_category, 
+                 options_for_select(Category.order(name: :asc).collect{ |u| [u.name, u.id] }),
+                 include_blank: 'Any'             
+    = submit_tag "Search", :name => nil  

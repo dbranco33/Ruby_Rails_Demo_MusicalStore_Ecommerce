@@ -1,0 +1,25 @@
+.product
+  ul
+    - unless product.image.nil?  
+      = image_tag(product.image(:medium))
+    li
+      b Name:
+      = product.name
+    li
+      b Category:
+      = product.category.name
+    li
+      b Price: $
+      = product.price
+    li
+      b Quantity Available:
+      = product.stock_quantity
+    li
+      - if full_details
+          b Description:
+          p = product.description
+          br/
+          = link_to 'Back', root_path
+      - else
+          p = link_to 'See details', product_show_path
+  br/

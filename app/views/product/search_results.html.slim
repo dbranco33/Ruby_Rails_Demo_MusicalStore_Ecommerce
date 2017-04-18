@@ -1,0 +1,16 @@
+h2 Search Results
+
+- if params[:search_category] == ''
+    = render partial: 'product', 
+      collection: @products1, 
+      locals: {full_details:false, 
+               display_link_to_show:true,
+               display_link_to_edit:false}
+- else
+    = render partial: 'product', 
+      collection: @products2, 
+      locals: {full_details:false, 
+               display_link_to_show:true,
+               display_link_to_edit:false}
+/Not working, discover why?
+/ = paginate @products

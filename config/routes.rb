@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :path_prefix => 'd' # routes for devise modules on User
   resources :users # custom admin-type CRUD for users
-  
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

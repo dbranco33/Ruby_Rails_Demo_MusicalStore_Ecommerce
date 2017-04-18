@@ -28,7 +28,6 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-
   config.action_mailer.perform_caching = false
 
   #--> 4 next line-code added by me.
@@ -39,7 +38,7 @@ Rails.application.configure do
   # Enabling default url option for Devise mailer.
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
-
+  
   Paperclip.options[:command_path] = "/usr/bin/"
 
   # Print deprecation notices to the Rails logger.

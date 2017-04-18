@@ -59,5 +59,8 @@ gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 # gem file for 'Paperclip'
 gem "paperclip", "~> 5.0.0"
 
+# gem file 'rails_12factor'
+gem 'rails_12factor', group: :production
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

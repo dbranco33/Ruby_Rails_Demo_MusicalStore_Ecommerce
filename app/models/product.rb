@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :order_items
 
-  default_scope { where(active: true) }
+  # default_scope { where(active: true) }
 
   # allows attachment for the column 'image'.
   # it also defines the 'url' for the uploaded pictures.

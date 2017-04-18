@@ -12,13 +12,43 @@ ActiveAdmin.register Product do
 #   permitted
 # end
 
-# parameters permitted to be changed by activeadmin
-permit_params :name,
-              :brand,
-              :status,
-              :price,
-              :stock_quantity,
-              :category_id,
-              :description
+  # parameters permitted to be changed by activeadmin
+  permit_params :name,
+                :brand,
+                :status,
+                :price,
+                :stock_quantity,
+                :image,
+                :category_id,
+                :description
 
+  # Defines product's fields showed in the 'index' products page.
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :brand
+    column :category
+    column :status
+    column :price
+    column :stock_quantity
+    column 'Image', sortable: :image_file_name do |prod| link_to prod.image_file_name, prod.image.url end
+    column :description
+    actions # gives me the 'view', 'edit', 'delete'
+  end
+
+  form do |f|
+    # Defines what are the inputs for creating a new product or for editing
+    f.inputs "Product Details" do
+      f.input :name
+      f.input :brand
+      f.input :category
+      f.input :status
+      f.input :price
+      f.input :stock_quantity
+      f.input :image, as: :file, required:false,:hint => image_tag(f.object.image.url(:thumb))
+      f.input :description
+    end
+    f.actions
+  end
 end

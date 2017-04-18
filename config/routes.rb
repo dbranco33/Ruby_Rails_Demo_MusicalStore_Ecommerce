@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+  get 'order_items/update'
+  get 'order_items/destroy'
+  get 'carts/show'
   get 'contact/contact_us'
-
   get 'about/about_us'
 
   devise_for :users, :path_prefix => 'd' # routes for devise modules on User
@@ -12,6 +15,9 @@ Rails.application.routes.draw do
   get 'product/index'
   get 'product/show'
   get 'welcome/index'
+
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
   # Define the domain root
   root 'welcome#index'

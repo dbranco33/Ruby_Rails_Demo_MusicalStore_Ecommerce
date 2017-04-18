@@ -4,6 +4,8 @@ class ProductController < ApplicationController
     @products = Product.order('name').page(params[:page]).per(5).all
     # Load all categories
     @categories = Category.order('name').all
+    @order_item = current_order.order_items.new
+  end
   end
 
   def show

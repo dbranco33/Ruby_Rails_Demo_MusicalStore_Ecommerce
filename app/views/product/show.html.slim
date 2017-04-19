@@ -1,1 +1,2 @@
-= render partial: '/product/product', object:@product, locals: {full_details:true}
+= render partial: 'product/product', object:@product, locals: {full_details:true}
+/ = render 'product_row', product: product, order_item: @order_item

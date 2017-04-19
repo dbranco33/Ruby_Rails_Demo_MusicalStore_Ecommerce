@@ -4,4 +4,11 @@
     = select_tag :search_category, 
                  options_for_select(Category.order(name: :asc).collect{ |u| [u.name, u.id] }),
                  include_blank: 'Any'             
-    = submit_tag "Search", :name => nil  
+    = submit_tag "Search", :name => nil
+    
+.container
+  .row
+    .col-xs-6.text-right
+      h1.cart-text = render '/layouts/cart_text'
+  hr/
+  = yield  

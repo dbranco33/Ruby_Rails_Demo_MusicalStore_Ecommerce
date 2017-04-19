@@ -1,0 +1,15 @@
+h2 All products
+
+/ .row
+/   .col-xs-6.col-xs-offset-3
+/     - @products.each do |product|
+/       = render "/product/product_row", product: product, order_item: @order_item
+
+= render partial: '/snippets/header'
+= render partial: '/snippets/search'
+/ = render partial: 'product', collection: @products, locals: {full_details:false}
+.row
+  .col-xs-6.col-xs-offset-3
+    - @products.each do |product|
+      = render "/product/product_row", product: product, order_item: @order_item
+= paginate @products

@@ -7,22 +7,21 @@ Rails.application.routes.draw do
   get 'about/about_us'
 
   devise_for :users, :path_prefix => 'd' # routes for devise modules on User
-  resources :users # custom admin-type CRUD for users
+  resources  :users # custom admin-type CRUD for users
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   get 'product/index'
   get 'product/show'
-  get 'welcome/index'
+  # get 'welcome/index'
 
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  resources 'product', only: [:index, :show, :acoustic_category]
 
   # Define the domain root
-  root 'welcome#index'
-
-  resources 'product', only: [:index, :show, :acoustic_category]
+  root 'product#index'
 
   # Routes for the pages that show products according their category
   get 'products_acoustic' => 'product#acoustic_category',  as: 'acoustic_products'

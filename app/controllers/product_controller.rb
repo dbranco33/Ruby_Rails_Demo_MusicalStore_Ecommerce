@@ -1,4 +1,6 @@
 class ProductController < ApplicationController
+  layout 'application'
+
   def index
     # Load all products.
     @products = Product.order('name').page(params[:page]).per(5).all
@@ -6,11 +8,11 @@ class ProductController < ApplicationController
     @categories = Category.order('name').all
     @order_item = current_order.order_items.new
   end
-  end
 
   def show
     # Find the product with the primary key mentioned in the URL.
     @product = Product.find(params[:id])
+    @order_item = current_order.order_items.new
   end
 
   def create
@@ -76,4 +78,5 @@ class ProductController < ApplicationController
   def user_params
     params.require(:product).permit(:image)
   end
+
 end

@@ -12,10 +12,9 @@ class Product < ApplicationRecord
                     default_url: '/uploads/products/missing.jpg'
 
   # validation the attachment file.
-  validates_attachment :image, content_type: { content_type: ["image/jpeg",
-                                                              "image/gif",
-                                                              "image/png"] }
-  #validates_attachment_content_type :image, content_type: %r{Aimage\/.*\z}
+  validates_attachment :image, content_type: { content_type: ['image/jpeg',
+                                                              'image/gif',
+                                                              'image/png'] }
 
   validates :name, presence: true
 end

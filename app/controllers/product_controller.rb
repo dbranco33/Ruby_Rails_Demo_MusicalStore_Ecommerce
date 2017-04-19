@@ -16,7 +16,7 @@ class ProductController < ApplicationController
   end
 
   def create
-    @product = Product.create( user_params )
+    @product = Product.create(user_params)
   end
 
   def acoustic_category
@@ -78,5 +78,4 @@ class ProductController < ApplicationController
   def user_params
     params.require(:product).permit(:image)
   end
-
 end

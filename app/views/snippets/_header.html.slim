@@ -21,8 +21,12 @@ p
   = link_to 'About', about_about_us_path
   = ' | '
   = link_to 'Contact', contact_contact_us_path
-
+  
+h3 Session
+  = session[:current_user_id] = user.id
+  
 h2 Shop by category
+
 ul  
   li= link_to 'Acoustic Guitars', acoustic_products_path
   li= link_to 'Electric Guitars', electric_products_path

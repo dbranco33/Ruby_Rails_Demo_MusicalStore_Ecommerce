@@ -13,7 +13,7 @@ ActiveAdmin.register Province do
 # end
 
   # parameters permitted to be changed by activeadmin
-  permit_params :name, :pst, :gst, :hst
+  permit_params :name, :pst
 
   index do
     selectable_column
@@ -29,5 +29,4 @@ ActiveAdmin.register Province do
   filter :pst
   filter :gst
   filter :hst
-
 end

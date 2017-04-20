@@ -15,7 +15,3 @@ Documentation:
 
 Metrics/LineLength:
   Max: 99
-
-# Added by me.
-EndOfLine:
-  Enabled: false

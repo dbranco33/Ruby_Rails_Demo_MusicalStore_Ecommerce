@@ -2,14 +2,10 @@ class OrderItem < ApplicationRecord
   belongs_to :product
   belongs_to :order
 
-  validates :quantity,
-            presence: true,
-            numericality: { only_integer: true, greater_than: 0 }
+  validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :product_present
   validate :order_present
-  validates :order_id,
-            uniqueness: { scope: 'product_id',
-                          message: 'Product already added.' }
+  validates :order_id, :uniqueness => { :scope => :product_id, :message => 'Product already added.' }
 
   before_save :finalize
 
@@ -25,16 +21,17 @@ class OrderItem < ApplicationRecord
     unit_price * quantity
   end
 
-  private
-
+private
   def product_present
-    return unless product.nil?
-    errors.add(:product, 'is not valid or is not active.')
+    if product.nil?
+      errors.add(:product, "is not valid or is not active.")
+    end
   end
 
   def order_present
-    return unless order.nil?
-    errors.add(:order, 'is not a valid order.')
+    if order.nil?
+      errors.add(:order, "is not a valid order.")
+    end
   end
 
   def finalize

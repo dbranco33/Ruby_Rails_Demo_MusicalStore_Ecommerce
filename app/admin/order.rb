@@ -12,6 +12,6 @@ ActiveAdmin.register Order do
 #   permitted
 # end
 
-  permit_params :order_status_id
+  permit_params :order_status_id, :user_id
 
 end
